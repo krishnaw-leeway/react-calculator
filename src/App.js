@@ -35,24 +35,31 @@ function App() {
 
   return (
     <div className="App">
-      <div className="calculator">
-        <h1>Simple Sum Calculator</h1>
-        <div className="input-group">
-          <NumberInput
-            value={numbers.num1}
-            onChange={handleNumberChange('num1')}
-            placeholder="Enter First Number"
-          />
-          <NumberInput
-            value={numbers.num2}
-            onChange={handleNumberChange('num2')}
-            placeholder="Enter Second Number"
-          />
-        </div>
-        <button onClick={calculateSum}>Add Numbers</button>
-        <button onClick={clearAll}>Clear</button>
-        <div className="result">
-          <h2>Result: {numbers.sum}</h2>
+      <div className="calculator-container">
+        <h1 className="calculator-title">Simple Sum Calculator</h1>
+        <div className="calculator-body">
+          <div className="input-group">
+            <NumberInput
+              value={numbers.num1}
+              onChange={handleNumberChange('num1')}
+              placeholder="Enter First Number"
+              className="calculator-input"
+            />
+            <div className="operator">+</div>
+            <NumberInput
+              value={numbers.num2}
+              onChange={handleNumberChange('num2')}
+              placeholder="Enter Second Number"
+              className="calculator-input"
+            />
+          </div>
+          <div className="button-group">
+            <button onClick={calculateSum} className="calculate-btn">Calculate Sum</button>
+            <button onClick={clearAll} className="clear-btn">Clear All</button>
+          </div>
+          <div className="result">
+            <h2>Result: <span className="result-value">{numbers.sum}</span></h2>
+          </div>
         </div>
       </div>
     </div>
